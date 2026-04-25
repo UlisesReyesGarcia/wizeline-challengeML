@@ -37,3 +37,18 @@ output "model_registry_table_arn" {
   description = "DynamoDB table ARN for the model registry."
   value       = aws_dynamodb_table.model_registry.arn
 }
+
+output "ecr_repository_name" {
+  description = "ECR repository name for the ML pipeline image."
+  value       = aws_ecr_repository.ml_pipeline.name
+}
+
+output "ecr_repository_url" {
+  description = "ECR repository URL for the ML pipeline image."
+  value       = aws_ecr_repository.ml_pipeline.repository_url
+}
+
+output "ecr_repository_arn" {
+  description = "ECR repository ARN for the ML pipeline image."
+  value       = aws_ecr_repository.ml_pipeline.arn
+}
