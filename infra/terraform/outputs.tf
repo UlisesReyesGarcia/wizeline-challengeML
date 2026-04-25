@@ -27,3 +27,13 @@ output "s3_bucket_arn" {
   description = "Main S3 bucket ARN."
   value       = aws_s3_bucket.main.arn
 }
+
+output "model_registry_table_name" {
+  description = "DynamoDB table name for the model registry."
+  value       = aws_dynamodb_table.model_registry.name
+}
+
+output "model_registry_table_arn" {
+  description = "DynamoDB table ARN for the model registry."
+  value       = aws_dynamodb_table.model_registry.arn
+}
