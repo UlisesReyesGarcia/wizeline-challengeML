@@ -97,3 +97,18 @@ output "ml_pipeline_log_group_name" {
   description = "CloudWatch log group name for ML pipeline ECS tasks."
   value       = aws_cloudwatch_log_group.ml_pipeline.name
 }
+
+output "step_functions_role_arn" {
+  description = "IAM role ARN used by Step Functions to orchestrate ECS tasks."
+  value       = aws_iam_role.step_functions_role.arn
+}
+
+output "step_functions_state_machine_name" {
+  description = "Step Functions state machine name for the ML pipeline."
+  value       = aws_sfn_state_machine.ml_pipeline.name
+}
+
+output "step_functions_state_machine_arn" {
+  description = "Step Functions state machine ARN for the ML pipeline."
+  value       = aws_sfn_state_machine.ml_pipeline.arn
+}
