@@ -112,3 +112,13 @@ output "step_functions_state_machine_arn" {
   description = "Step Functions state machine ARN for the ML pipeline."
   value       = aws_sfn_state_machine.ml_pipeline.arn
 }
+
+output "training_trigger_lambda_name" {
+  description = "Lambda function name for S3 training batch trigger."
+  value       = aws_lambda_function.training_trigger.function_name
+}
+
+output "training_trigger_lambda_arn" {
+  description = "Lambda function ARN for S3 training batch trigger."
+  value       = aws_lambda_function.training_trigger.arn
+}
