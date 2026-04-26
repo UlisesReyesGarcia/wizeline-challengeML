@@ -37,6 +37,7 @@ data "aws_iam_policy_document" "prediction_api_lambda_policy" {
 
     resources = [
       "${aws_s3_bucket.main.arn}/inference/input/*",
+      "${aws_s3_bucket.main.arn}/inference/output/*",
       "${aws_s3_bucket.main.arn}/models/champion/*"
     ]
   }

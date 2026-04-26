@@ -157,3 +157,13 @@ output "prediction_api_lambda_arn" {
   description = "Lambda function ARN for batch predictions."
   value       = aws_lambda_function.prediction_api.arn
 }
+
+output "model_registry_api_lambda_name" {
+  description = "Lambda function name for model registry API."
+  value       = aws_lambda_function.model_registry_api.function_name
+}
+
+output "model_registry_api_lambda_arn" {
+  description = "Lambda function ARN for model registry API."
+  value       = aws_lambda_function.model_registry_api.arn
+}
