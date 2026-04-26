@@ -1,0 +1,21 @@
+.git
+.github
+.terraform
+**/.terraform
+**/*.tfstate
+**/*.tfstate.*
+__pycache__
+**/__pycache__
+*.pyc
+.DS_Store
+.env
+.env.*
+.venv
+venv
+node_modules
+frontend/node_modules
+
+# Local data and artifacts should not be copied by default
+ml_pipeline/data/*.csv
+ml_pipeline/artifacts/*
+!ml_pipeline/artifacts/.gitkeep

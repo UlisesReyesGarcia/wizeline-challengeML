@@ -276,6 +276,10 @@ override.tf.json
 !sample_*.csv
 !example_*.csv
 
+# Local ML pipeline artifacts
+ml_pipeline/artifacts/*
+!ml_pipeline/artifacts/.gitkeep
+
 # Logs
 logs/
 *.log
