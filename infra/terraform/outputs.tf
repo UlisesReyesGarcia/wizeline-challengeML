@@ -67,3 +67,13 @@ output "ecs_tasks_security_group_id" {
   description = "Security group ID for ECS Fargate tasks."
   value       = aws_security_group.ecs_tasks.id
 }
+
+output "ecs_task_execution_role_arn" {
+  description = "IAM role ARN used by ECS to execute Fargate tasks."
+  value       = aws_iam_role.ecs_task_execution_role.arn
+}
+
+output "ecs_task_role_arn" {
+  description = "IAM role ARN used by the ML pipeline container."
+  value       = aws_iam_role.ecs_task_role.arn
+}
