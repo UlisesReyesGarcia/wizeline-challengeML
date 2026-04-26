@@ -52,3 +52,18 @@ output "ecr_repository_arn" {
   description = "ECR repository ARN for the ML pipeline image."
   value       = aws_ecr_repository.ml_pipeline.arn
 }
+
+output "vpc_id" {
+  description = "VPC ID used by ECS Fargate tasks."
+  value       = aws_vpc.main.id
+}
+
+output "public_subnet_ids" {
+  description = "Public subnet IDs used by ECS Fargate tasks."
+  value       = aws_subnet.public[*].id
+}
+
+output "ecs_tasks_security_group_id" {
+  description = "Security group ID for ECS Fargate tasks."
+  value       = aws_security_group.ecs_tasks.id
+}
