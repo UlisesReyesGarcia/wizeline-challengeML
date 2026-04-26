@@ -77,3 +77,23 @@ output "ecs_task_role_arn" {
   description = "IAM role ARN used by the ML pipeline container."
   value       = aws_iam_role.ecs_task_role.arn
 }
+
+output "ecs_cluster_name" {
+  description = "ECS cluster name for ML pipeline tasks."
+  value       = aws_ecs_cluster.ml_pipeline.name
+}
+
+output "ecs_cluster_arn" {
+  description = "ECS cluster ARN for ML pipeline tasks."
+  value       = aws_ecs_cluster.ml_pipeline.arn
+}
+
+output "ecs_task_definition_arn" {
+  description = "ECS task definition ARN for the ML pipeline."
+  value       = aws_ecs_task_definition.ml_pipeline.arn
+}
+
+output "ml_pipeline_log_group_name" {
+  description = "CloudWatch log group name for ML pipeline ECS tasks."
+  value       = aws_cloudwatch_log_group.ml_pipeline.name
+}
