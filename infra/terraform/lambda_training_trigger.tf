@@ -86,6 +86,7 @@ resource "aws_lambda_function" "training_trigger" {
   environment {
     variables = {
       STATE_MACHINE_ARN = aws_sfn_state_machine.ml_pipeline.arn
+      S3_BUCKET_NAME    = aws_s3_bucket.main.bucket
       OUTPUT_URI        = "s3://${aws_s3_bucket.main.bucket}/models/candidates"
       CHAMPION_URI      = "s3://${aws_s3_bucket.main.bucket}/models/champion"
     }
