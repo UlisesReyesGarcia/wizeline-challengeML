@@ -122,3 +122,38 @@ output "training_trigger_lambda_arn" {
   description = "Lambda function ARN for S3 training batch trigger."
   value       = aws_lambda_function.training_trigger.arn
 }
+
+output "upload_api_lambda_name" {
+  description = "Lambda function name for generating presigned upload URLs."
+  value       = aws_lambda_function.upload_api.function_name
+}
+
+output "upload_api_lambda_arn" {
+  description = "Lambda function ARN for generating presigned upload URLs."
+  value       = aws_lambda_function.upload_api.arn
+}
+
+output "prediction_api_ecr_repository_name" {
+  description = "ECR repository name for the prediction API Lambda image."
+  value       = aws_ecr_repository.prediction_api.name
+}
+
+output "prediction_api_ecr_repository_url" {
+  description = "ECR repository URL for the prediction API Lambda image."
+  value       = aws_ecr_repository.prediction_api.repository_url
+}
+
+output "prediction_api_ecr_repository_arn" {
+  description = "ECR repository ARN for the prediction API Lambda image."
+  value       = aws_ecr_repository.prediction_api.arn
+}
+
+output "prediction_api_lambda_name" {
+  description = "Lambda function name for batch predictions."
+  value       = aws_lambda_function.prediction_api.function_name
+}
+
+output "prediction_api_lambda_arn" {
+  description = "Lambda function ARN for batch predictions."
+  value       = aws_lambda_function.prediction_api.arn
+}
