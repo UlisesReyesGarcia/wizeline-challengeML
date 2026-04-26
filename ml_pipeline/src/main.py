@@ -77,9 +77,17 @@ def resolve_runtime_paths(args: argparse.Namespace) -> dict[str, str]:
 
     Priority:
     1. CLI arguments.
-    2. S3 defaults if S3_BUCKET_NAME is present.
-    3. Local defaults.
+    2. Explicit environment variables:
+       - TRAINING_DATA_URI
+       - OUTPUT_URI
+       - CHAMPION_URI
+    3. S3 defaults if S3_BUCKET_NAME is present.
+    4. Local defaults.
     """
+    env_data_uri = os.getenv("TRAINING_DATA_URI")
+    env_output_uri = os.getenv("OUTPUT_URI")
+    env_champion_uri = os.getenv("CHAMPION_URI")
+
     if args.data_path and args.output_dir and args.champion_dir:
         return {
             "data_path": args.data_path,
@@ -87,12 +95,19 @@ def resolve_runtime_paths(args: argparse.Namespace) -> dict[str, str]:
             "champion_dir": args.champion_dir,
         }
 
+    if env_data_uri and env_output_uri and env_champion_uri:
+        return {
+            "data_path": args.data_path or env_data_uri,
+            "output_dir": args.output_dir or env_output_uri,
+            "champion_dir": args.champion_dir or env_champion_uri,
+        }
+
     if os.getenv("S3_BUCKET_NAME"):
         default_s3_uris = get_default_s3_uris()
         return {
-            "data_path": args.data_path or default_s3_uris["data_uri"],
-            "output_dir": args.output_dir or default_s3_uris["output_uri"],
-            "champion_dir": args.champion_dir or default_s3_uris["champion_uri"],
+            "data_path": args.data_path or env_data_uri or default_s3_uris["data_uri"],
+            "output_dir": args.output_dir or env_output_uri or default_s3_uris["output_uri"],
+            "champion_dir": args.champion_dir or env_champion_uri or default_s3_uris["champion_uri"],
         }
 
     return {

@@ -49,6 +49,18 @@ resource "aws_sfn_state_machine" "ml_pipeline" {
                   {
                     Name  = "ENVIRONMENT"
                     Value = var.environment
+                  },
+                  {
+                    Name      = "TRAINING_DATA_URI"
+                    "Value.$" = "$.training_data_uri"
+                  },
+                  {
+                    Name      = "OUTPUT_URI"
+                    "Value.$" = "$.output_uri"
+                  },
+                  {
+                    Name      = "CHAMPION_URI"
+                    "Value.$" = "$.champion_uri"
                   }
                 ]
               }
