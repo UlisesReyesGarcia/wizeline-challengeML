@@ -107,7 +107,7 @@ wizeline-challengeML/
    - compara contra el champion actual;
    - si mejora, copia `model.pkl`, `metrics.json`, `metadata.json` y `promotion_decision.json` a `models/champion/`.
 
-### 4.2 Prediccion batch
+### 4.2 Predicción batch
 
 1. El frontend solicita un presigned URL a `POST /upload-url`.
 2. El CSV de inferencia se sube directo a `s3://<bucket>/inference/input/...csv`.
@@ -263,7 +263,7 @@ Configurados en [`ml_pipeline/configs/model_grids.yaml`](ml_pipeline/configs/mod
 - `GradientBoostingRegressor`
 - `XGBRegressor`
 
-Todos se entrenan con `GridSearchCV`, `cv=5` y metrica de seleccion `neg_root_mean_squared_error`.
+Todos se entrenan con `GridSearchCV`, `cv=5` y métrica de selección `neg_root_mean_squared_error`.
 
 ### 6.3 Selección y promoción
 
@@ -450,7 +450,7 @@ VITE_API_ENDPOINT=https://<api-id>.execute-api.us-east-1.amazonaws.com
 - `OUTPUT_URI`
 - `CHAMPION_URI`
 
-## 9. Prerrequisitos para replicar la solucion en AWS
+## 9. Prerrequisitos para replicar la solución en AWS
 
 Instala y configura:
 
@@ -612,19 +612,19 @@ En la pantalla principal:
 1. Prepara un CSV con exactamente 20 columnas:
    - `feature_0` a `feature_19`
 2. Haz clic en `Subir CSV`.
-3. La UI solicitara un presigned URL y cargará el archivo a S3.
+3. La UI solicitará un presigned URL y cargará el archivo a S3.
 4. Haz clic en `Ejecutar prediccion`.
-5. Al finalizar, se mostrara:
+5. Al finalizar, se mostrará:
    - `rows_scored`
    - `output_s3_uri`
    - enlace de descarga del CSV con predicciones
 
 ### 12.4 Disparar reentrenamiento manual
 
-1. Verifica que el archivo historico exista en `training/raw/`.
+1. Verifica que el archivo histórico exista en `training/raw/`.
 2. En el campo `Training data URI`, captura una ruta valida `s3://.../training/raw/<archivo>.csv`.
 3. Haz clic en `Disparar reentrenamiento`.
-4. La UI mostrara:
+4. La UI mostrará:
    - `execution_name`
    - `execution_arn`
    - `start_date`
