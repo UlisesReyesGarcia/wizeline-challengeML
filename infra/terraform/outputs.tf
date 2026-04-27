@@ -167,3 +167,38 @@ output "model_registry_api_lambda_arn" {
   description = "Lambda function ARN for model registry API."
   value       = aws_lambda_function.model_registry_api.arn
 }
+
+output "cognito_user_pool_id" {
+  description = "Cognito User Pool ID."
+  value       = aws_cognito_user_pool.main.id
+}
+
+output "cognito_user_pool_arn" {
+  description = "Cognito User Pool ARN."
+  value       = aws_cognito_user_pool.main.arn
+}
+
+output "cognito_user_pool_client_id" {
+  description = "Cognito User Pool App Client ID for frontend authentication."
+  value       = aws_cognito_user_pool_client.frontend.id
+}
+
+output "cognito_issuer_url" {
+  description = "Cognito issuer URL used by API Gateway JWT authorizer."
+  value       = "https://cognito-idp.${var.aws_region}.amazonaws.com/${aws_cognito_user_pool.main.id}"
+}
+
+output "api_gateway_id" {
+  description = "HTTP API Gateway ID."
+  value       = aws_apigatewayv2_api.main.id
+}
+
+output "api_gateway_endpoint" {
+  description = "HTTP API Gateway endpoint."
+  value       = aws_apigatewayv2_api.main.api_endpoint
+}
+
+output "api_gateway_authorizer_id" {
+  description = "Cognito JWT authorizer ID for HTTP API Gateway."
+  value       = aws_apigatewayv2_authorizer.cognito_jwt.id
+}
