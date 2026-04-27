@@ -48,3 +48,29 @@ resource "aws_s3_object" "folders" {
   key     = each.value
   content = ""
 }
+
+resource "aws_s3_bucket_cors_configuration" "main" {
+  bucket = aws_s3_bucket.main.id
+
+  cors_rule {
+    allowed_headers = ["*"]
+
+    allowed_methods = [
+      "GET",
+      "HEAD",
+      "PUT",
+      "POST"
+    ]
+
+    allowed_origins = [
+      "http://localhost:5173",
+      "http://localhost:4173"
+    ]
+
+    expose_headers = [
+      "ETag"
+    ]
+
+    max_age_seconds = 3000
+  }
+}
