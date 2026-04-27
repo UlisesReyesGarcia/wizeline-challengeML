@@ -202,3 +202,23 @@ output "api_gateway_authorizer_id" {
   description = "Cognito JWT authorizer ID for HTTP API Gateway."
   value       = aws_apigatewayv2_authorizer.cognito_jwt.id
 }
+
+output "frontend_bucket_name" {
+  description = "S3 bucket name for frontend hosting."
+  value       = aws_s3_bucket.frontend.bucket
+}
+
+output "frontend_cloudfront_distribution_id" {
+  description = "CloudFront distribution ID for frontend hosting."
+  value       = aws_cloudfront_distribution.frontend.id
+}
+
+output "frontend_cloudfront_domain_name" {
+  description = "CloudFront domain name for frontend hosting."
+  value       = aws_cloudfront_distribution.frontend.domain_name
+}
+
+output "frontend_url" {
+  description = "Frontend URL served by CloudFront."
+  value       = "https://${aws_cloudfront_distribution.frontend.domain_name}"
+}

@@ -64,7 +64,8 @@ resource "aws_s3_bucket_cors_configuration" "main" {
 
     allowed_origins = [
       "http://localhost:5173",
-      "http://localhost:4173"
+      "http://localhost:4173",
+      "https://dy3qfdwndgcmy.cloudfront.net"
     ]
 
     expose_headers = [
